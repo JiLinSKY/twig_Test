@@ -1,0 +1,22 @@
+<header class="flex justify-between w-full z-50 bg-white fixed left-0 top-0 right-0 h-screen md:h-auto">
+  {% include 'partials/header-start.twig' %}
+  {% include 'partials/header-search.twig' %}
+  {% include 'partials/header-menu.twig' %}
+</header>
+
+
+<script>
+  const menuHeader = document.getElementById('menu-header');
+  const menuItems2 = document.querySelectorAll('[role="menuitem"]');
+
+  menuHeader.addEventListener('click', () => {
+  const expanded = menuHeader.getAttribute('aria-expanded') === 'true' || false;
+  menuHeader.setAttribute('aria-expanded', !expanded);
+  menuHeader.nextElementSibling.classList.toggle('hidden');
+  });
+
+  menuItems2.forEach(item => {
+  item.addEventListener('click', () => {
+  });
+  });
+</script>

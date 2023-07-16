@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>YouTube</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+	</head>
+	<body>
+		<div>{% include 'partials/header.twig' %}</div>
+		<div class="pt-14">
+			<div class="flex">
+				<div>{% include 'partials/sidebar.twig' %}</div>
+				<div>
+					<div class="w-full">{% include 'partials/category.twig' %}</div>
+					<div class="w-11/12">{% block content %} {% endblock %}</div>
+				</div>
+			</div>
+		</div>
+
+		{% include 'partials/footer.twig' %}
+	</body>
+</html>
