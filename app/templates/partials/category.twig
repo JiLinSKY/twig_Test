@@ -1,6 +1,14 @@
 <div class=" pt-4 pb-2 mb-1  bg-white whitespace-nowrap w-full overflow-auto">
   <div class="ml-1 flex text-sm space-x-3 ">
-
+{% for category in categories %}
+        {% if selected_category == category %}
+          <a href="?category={{ category }}"
+             class="px-3 py-1 mx-1 bg-black text-white  border border-gray-300 rounded-md transition ">{{ category }}</a>
+        {% else %}
+            <a href="?category={{ category }}"
+               class="px-3 py-1 mx-1 bg-slate-100 border border-gray-300 rounded-md transition hover:bg-gray-200">{{ category }}</a>
+        {% endif %}
+    {% endfor %}
      
   </div>
 </div>
