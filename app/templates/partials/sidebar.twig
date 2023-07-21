@@ -616,17 +616,61 @@
 	</footer>
 </div>
 
-{#test#}
-<ul class=" p-4">
-    {% for menu in menus %}
-        <a class="items-center flex hover:bg-slate-200" href="{{ item.url }}">{{ menu.icon|raw }}
-            <p class="px-2 py-1">{{ menu.link|e }}</p>
-        </a>
-    {% endfor %}
-</ul>
+{# Menu 1 #}
+<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
+	<div class="ml-1 flex flex-col space-y-2">
+		{% for menu_item in menu %} {% set active_style = (selected_menu_index is
+		defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' : 'bg-white'
+		%}
+		<a
+			href="?menu_index={{ loop.index0 }}"
+			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+				active_style
+			}}">
+			{{ menu_item.icon | raw }}
+			<span>{{ menu_item.title }}</span>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+<hr class="my-4" />
 
+{# Menu 2 #}
+<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
+	<div class="ml-1 flex flex-col space-y-2">
+		{% for menu2_item in menu2 %} {% set active_style2 = (selected_menu2_index
+		is defined and loop.index0 == selected_menu2_index) ? 'bg-gray-300' :
+		'bg-white' %}
+		<a
+			href="?menu2_index={{ loop.index0 }}"
+			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+				active_style2
+			}}">
+			{{ menu2_item.icon | raw }}
+			<span>{{ menu2_item.title }}</span>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+<hr class="my-4" />
 
-{#test#}
+{# Menu 3 #}
+<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
+	<div class="ml-1 flex flex-col space-y-2">
+		{% for menu3_item in menu3 %} {% set active_style3 = (selected_menu3_index
+		is defined and loop.index0 == selected_menu3_index) ? 'bg-gray-300' :
+		'bg-white' %}
+		<a
+			href="?menu3_index={{ loop.index0 }}"
+			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+				active_style3
+			}}">
+			{{ menu3_item.icon | raw }}
+			<span>{{ menu3_item.title }}</span>
+		</a>
+		{% endfor %}
+	</div>
+</div>
 
 <script>
 	const menuButton = document.getElementById("menu-button")
