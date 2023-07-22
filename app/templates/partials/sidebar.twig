@@ -1,211 +1,61 @@
-<div class="text-xs w-60 max-h-screen overflow-auto top-0 bg-white">
-	<div class="mx-3">
-		<ul>
-			<li>
-				<a href="#">
-					<div
-						class="flex items-center hover:bg-slate-100 p-1 cursor-pointer font-medium bg-slate-100 hover:bg-slate-200">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 h-5 w-5 hover:red-600"
-							viewBox="0 0 20 20"
-							fill="currentColor">
-							<path
-								d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Home</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="text-gray-700 w-5 h-5">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Trending</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 h-5 w-5 hover:red-600"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-						</svg>
-						<p class="text-grey-700 mx-3">Subscriptions</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="text-gray-700 h-5 w-5 hover:red-600">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Originals</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="text-gray-700 w-5 h-5">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-						</svg>
-						<p class="text-grey-700 mx-3">YouTube Music</p>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<div class="border-b border-gray-300 mt-2 mb-2 w-5/6"></div>
+<div class="pl-4 text-xs w-60 max-h-screen overflow-auto top-0 bg-white">
+	{# Menu 1 #}
+	<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="flex flex-col">
+			{% for menu_item in menu %} {% set active_style = (selected_menu_index is
+			defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' :
+			'bg-white' %}
+			<a
+				href="?menu_index={{ loop.index0 }}"
+				class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+					active_style
+				}}">
+				{{ menu_item.icon | raw }}
+				<span class="pl-2">{{ menu_item.title }}</span>
+			</a>
+			{% endfor %}
+		</div>
 	</div>
-	{# More #}
-	<div class="mx-3">
-		<ul>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-						</svg>
-						<p class="text-grey-700 mx-3">Library</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-						<p class="text-grey-700 mx-3">History</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-						</svg>
-						<p class="text-grey-700 mx-3">You videos</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Wath Later</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-						</svg>
-						<p class="text-grey-700 mx-3">Downloaded</p>
-					</div>
-				</a>
-			</li>
-		</ul>
+	<hr class="my-1" />
+
+	{# Menu 2 #}
+	<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="flex flex-col">
+			{% for menu2_item in menu2 %} {% set active_style2 = (selected_menu2_index
+			is defined and loop.index0 == selected_menu2_index) ? 'bg-gray-300' :
+			'bg-white' %}
+			<a
+				href="?menu2_index={{ loop.index0 }}"
+				class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+					active_style2
+				}}">
+				{{ menu2_item.icon | raw }}
+				<span class="pl-2">{{ menu2_item.title }}</span>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+	<hr class="my-1" />
+
+	{# Menu 3 #}
+	<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="flex flex-col">
+			{% for menu2_item in menu3 %} {% set active_style3 = (selected_menu2_index
+			is defined and loop.index0 == selected_menu2_index) ? 'bg-gray-300' :
+			'bg-white' %}
+			<a
+				href="?menu2_index={{ loop.index0 }}"
+				class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+					active_style3
+				}}">
+				{{ menu2_item.icon | raw }}
+				<span class="pl-2">{{ menu2_item.title }}</span>
+			</a>
+			{% endfor %}
+		</div>
 	</div>
 	{# Expand #}
-	<div class="relative mx-4">
+	<div class="relative">
 		<button
 			type="button"
 			class="w-full flex items-center justify-start items-center p-1 bg-white text-gray-700 hover:bg-gray-100"
@@ -356,320 +206,34 @@
 				>
 			</div>
 		</div>
-		<div class="border-b border-gray-300 mt-2 mb-2 w-5/6"></div>
 	</div>
-
-	{# Subscriptions #}
-	<div class>
-		<div class="text-gray-700 mx-5 w-5 h-5">Subscriptions</div>
-		<div class="border-b border-gray-300 mt-2 mb-2 w-5/6"></div>
-	</div>
-
-	{# Navigator #}
-	<div class="mx-3">
-		<div class="text-gray-700 mx-2 w-5 h-5">Navigator</div>
-		<ul>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-						</svg>
-						<p class="text-grey-700 mx-3">In Trend</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-						</svg>
-						<p class="text-grey-700 mx-3">Music</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Movies</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Video games</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-						</svg>
-						<p class="text-grey-700 mx-3">News</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Sport</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-						</svg>
-						<p class="text-grey-700 mx-3">Education</p>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<div class="border-b border-gray-300 mt-2 mb-2 w-5/6"></div>
-	</div>
-
-	{# Settings #}
-	<div class="mx-3">
-		<ul>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Settings</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Complaints</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Reference</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="flex items-center hover:bg-slate-100 p-1 cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="text-gray-700 w-5 h-5"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2">
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-						</svg>
-						<p class="text-grey-700 mx-3">Post a review</p>
-					</div>
-				</a>
-			</li>
-		</ul>
-		<div class="border-b border-gray-300 mt-2 mb-2 w-5/6"></div>
-	</div>
+	<hr class="my-1" />
 	{# Footer #}
-	<footer class="mx-6 my-4 text-xs space-y-3">
-		<div>
-			<a href="#" class="mr-2">Press</a>
-			<a href="#" class="mr-2">Copyright</a>
-			<a href="#" class="mr-2">Connect with us</a>
-			<a href="#" class="mr-2">About the service</a>
-			<a href="#" class="mr-2">Authors</a>
-			<a href="#" class="mr-2">Advertisers</a>
-			<a href="#" class="mr-2">Developers</a>
+	<footer class="text-gray-600">
+		<div class="p-4">
+			<ul class="w-52">
+				{% for link in links_footer %}
+				<li class="mr-2">
+					<a href="{{ link.url }}" class="">{{ link.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
-		<div>
-			<a href="#" class="mr-2">Terms of UseConfidentiality</a>
-			<a href="#" class="mr-2">Rules and security</a>
-			<a href="#" class="mr-2">How YouTube works</a>
-			<a href="#" class="mr-2">Testing new features</a>
+		{# Footer 2 #}
+		<div class="p-4">
+			<ul class="w-52">
+				{% for link in links_footer2 %}
+				<li class="mr-2">
+					<a href="{{ link.url }}" class="">{{ link.title }}</a>
+				</li>
+				{% endfor %}
+			</ul>
 		</div>
-		<div class="text-xs text-gray-500">
+		<div class=" pl-4 text-xs text-gray-500">
 			© 2023 Google LLC
 			<div />
 		</div>
 	</footer>
-</div>
-
-{# Menu 1 #}
-<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
-	<div class="ml-1 flex flex-col space-y-2">
-		{% for menu_item in menu %} {% set active_style = (selected_menu_index is
-		defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' : 'bg-white'
-		%}
-		<a
-			href="?menu_index={{ loop.index0 }}"
-			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
-				active_style
-			}}">
-			{{ menu_item.icon | raw }}
-			<span>{{ menu_item.title }}</span>
-		</a>
-		{% endfor %}
-	</div>
-</div>
-<hr class="my-4" />
-
-{# Menu 2 #}
-<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
-	<div class="ml-1 flex flex-col space-y-2">
-		{% for menu2_item in menu2 %} {% set active_style2 = (selected_menu2_index
-		is defined and loop.index0 == selected_menu2_index) ? 'bg-gray-300' :
-		'bg-white' %}
-		<a
-			href="?menu2_index={{ loop.index0 }}"
-			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
-				active_style2
-			}}">
-			{{ menu2_item.icon | raw }}
-			<span>{{ menu2_item.title }}</span>
-		</a>
-		{% endfor %}
-	</div>
-</div>
-<hr class="my-4" />
-
-{# Menu 3 #}
-<div class="pt-4 pb-2 mb-1 bg-white whitespace-nowrap w-full overflow-auto">
-	<div class="ml-1 flex flex-col space-y-2">
-		{% for menu3_item in menu3 %} {% set active_style3 = (selected_menu3_index
-		is defined and loop.index0 == selected_menu3_index) ? 'bg-gray-300' :
-		'bg-white' %}
-		<a
-			href="?menu3_index={{ loop.index0 }}"
-			class="flex items-center space-x-2 px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
-				active_style3
-			}}">
-			{{ menu3_item.icon | raw }}
-			<span>{{ menu3_item.title }}</span>
-		</a>
-		{% endfor %}
-	</div>
 </div>
 
 <script>
