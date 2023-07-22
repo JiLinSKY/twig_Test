@@ -40,16 +40,16 @@
 	{# Menu 3 #}
 	<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
 		<div class="flex flex-col">
-			{% for menu2_item in menu3 %} {% set active_style3 = (selected_menu2_index
-			is defined and loop.index0 == selected_menu2_index) ? 'bg-gray-300' :
+			{% for menu3_item in menu3 %} {% set active_style3 = (selected_menu3_index
+			is defined and loop.index0 == selected_menu3_index) ? 'bg-gray-300' :
 			'bg-white' %}
 			<a
-				href="?menu2_index={{ loop.index0 }}"
+				href="?menu3_index={{ loop.index0 }}"
 				class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
 					active_style3
 				}}">
-				{{ menu2_item.icon | raw }}
-				<span class="pl-2">{{ menu2_item.title }}</span>
+				{{ menu3_item.icon | raw }}
+				<span class="pl-2">{{ menu3_item.title }}</span>
 			</a>
 			{% endfor %}
 		</div>
@@ -84,126 +84,23 @@
 			aria-labelledby="menu-button"
 			tabindex="-1">
 			<div class="py-1" role="none">
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">Drum'n'Bass</p></a
-				>
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">Rock</p></a
-				>
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">Pop</p></a
-				>
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">Classic</p></a
-				>
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">House</p></a
-				>
-				<a
-					href="#"
-					class="flex block px-1 py-1 text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-					role="menuitem"
-					tabindex="-1"
-					id="menu-item-0">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke-width="1.5"
-						stroke="currentColor"
-						class="w-5 h-5">
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25" />
-					</svg>
-					<p class="pl-3">Trance</p></a
-				>
+				<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="flex flex-col">
+			{% for expand_item in expand %} {% set active_style4 = (selected_expand_index
+			is defined and loop.index0 == selected_expand_index) ? 'bg-gray-300' :
+			'bg-white' %}
+			<a
+				href="?expand_index={{ loop.index0 }}"
+				class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+					active_style3
+				}}">
+				{{ expand_item.icon | raw }}
+				<span class="pl-2">{{ expand_item.title }}</span>
+			</a>
+			{% endfor %}
+		</div>
+	</div>
+				
 			</div>
 		</div>
 	</div>

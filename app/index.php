@@ -114,6 +114,31 @@ echo $twig->render('pages/' . $page . '.twig', [
         ],
     ],
 
+     'selected_expand_index' => isset($_GET['expand_index']) ? $_GET['expand_index'] : 0,
+    'expand' => [
+        [
+            'icon' => '<svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 10%; height: 10%;"><path d="M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z"></path></svg>',
+            'title' => 'Rock',
+            'link' => '/contact',
+        ],
+        [
+            'icon' => '<svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 10%; height: 10%;"><path d="M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z"></path></svg>',
+            'title' => 'Pop',
+            'link' => '/contact',
+        ],
+        [
+            'icon' => '<svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 10%; height: 10%;"><path d="M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z"></path></svg>',
+            'title' => 'Classic',
+            'link' => '/contact',
+        ],
+        [
+            'icon' => '<svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 10%; height: 10%;"><path d="M22 7H2v1h20V7zm-9 5H2v-1h11v1zm0 4H2v-1h11v1zm2 3v-8l7 4-7 4z"></path></svg>',
+            'title' => 'House',
+            'link' => '/contact',
+        ],
+    ],
+
+
     //footer
     'links_footer' => [
     ['title' => 'О сервисе', 'url' => '#'],
