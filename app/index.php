@@ -108,6 +108,8 @@ echo $twig->render('pages/' . $page . '.twig', [
         ],
     ],
 
+
+    // expand
      'selected_expand_index' => isset($_GET['expand_index']) ? $_GET['expand_index'] : 0,
     'expand' => [
         [
@@ -133,7 +135,7 @@ echo $twig->render('pages/' . $page . '.twig', [
     ],
 
 
-    //footer
+    // footer
     'links_footer' => [
     ['title' => 'О сервисе', 'url' => '#'],
     ['title' => 'Прессе', 'url' => '#'],
