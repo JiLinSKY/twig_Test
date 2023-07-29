@@ -1,14 +1,131 @@
-<div class=" pt-1 pb-2 mb-1  bg-white whitespace-nowrap w-full overflow-auto">
-  <div class="my-1 flex text-sm space-x-3 ">
-{% for category in categories %}
-        {% if selected_category == category %}
-          <a href="?category={{ category }}"
-             class="px-3 py-1 mx-1 bg-black text-white  border border-gray-300 rounded-md transition ">{{ category }}</a>
-        {% else %}
-            <a href="?category={{ category }}"
-               class="px-3 py-1 mx-1 bg-slate-100 border border-gray-300 rounded-md transition hover:bg-gray-200">{{ category }}</a>
-        {% endif %}
-    {% endfor %}
-     
-  </div>
+{# <div class="px-2 py-1 whitespace-nowrap max-w-screen overflow-auto">
+	<div class="flex items-center space-x-2">
+		<div>
+			<!-- Кнопка "Предыдущая страница" -->
+			<a
+				href="#"
+				class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition">
+				&laquo;
+			</a>
+		</div>
+
+		<div class="my-1 text-sm space-x-2 isolate inline-flex shadow-sm">
+			{% for category in categories %} {% if selected_category == category %}
+			<a
+				href="?category={{ category }}"
+				class="px-3 py-1 mx-1 bg-black text-white border border-none rounded-md transition"
+				>{{ category }}</a
+			>
+			{% else %}
+			<a
+				href="?category={{ category }}"
+				class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition hover:bg-gray-200"
+				>{{ category }}</a
+			>
+			{% endif %} {% endfor %}
+		</div>
+
+		<div>
+			<!-- Кнопка "Следующая страница" -->
+			<a
+				href="#"
+				class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition">
+				&raquo;
+			</a>
+		</div>
+	</div>
+</div> #}
+
+
+
+
+{# New + JS #}
+<div class="px-2 py-1 whitespace-nowrap max-w-screen overflow-auto">
+	<div class="flex items-center space-x-2">
+		<div>
+			<!-- Кнопка "Предыдущая страница" -->
+			<a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="prevButton">&laquo;</a>
+		</div>
+
+		<div class="my-1 text-sm space-x-2 isolate inline-flex shadow-sm" id="categoriesContainer">
+			{% for category in categories %}
+				{% if selected_category == category %}
+					<a href="?category={{ category }}" class="px-3 py-1 mx-1 bg-black text-white border border-none rounded-md transition hover:bg-gray-200 hover:text-black">{{ category }}</a>
+				{% else %}
+					<a href="?category={{ category }}" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition hover:bg-gray-200 hover:text-white">{{ category }}</a>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		<div>
+			<!-- Кнопка "Следующая страница" -->
+			<a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="nextButton">&raquo;</a>
+		</div>
+	</div>
 </div>
+
+<!-- JavaScript code -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const categoriesContainer = document.getElementById("categoriesContainer");
+  const prevButton = document.getElementById("prevButton");
+  const nextButton = document.getElementById("nextButton");
+
+  const categories = [
+    {% for category in categories %}
+      "{{ category }}",
+    {% endfor %}
+  ];
+
+  let selectedCategoryIndex = categories.indexOf("{{ selected_category }}");
+
+  function renderCategories() {
+    categoriesContainer.innerHTML = "";
+    categories.forEach((category, index) => {
+      const categoryLink = document.createElement("a");
+      categoryLink.textContent = category;
+      categoryLink.href = "?category=" + category;
+      categoryLink.classList.add(
+        "px-3",
+        "py-1",
+        "mx-1",
+        "border",
+        "border-none",
+        "rounded-md",
+        "transition"
+      );
+
+      if (index === selectedCategoryIndex) {
+        categoryLink.classList.add("bg-black", "text-white");
+      } else {
+        categoryLink.classList.add("bg-slate-100", "text-black", "hover:bg-gray-200");
+      }
+
+      categoriesContainer.appendChild(categoryLink);
+    });
+  }
+
+  function updateSelectedCategory(index) {
+    selectedCategoryIndex = index;
+    renderCategories();
+  }
+
+  prevButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (selectedCategoryIndex > 0) {
+      updateSelectedCategory(selectedCategoryIndex - 1);
+    }
+  });
+
+  nextButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (selectedCategoryIndex < categories.length - 1) {
+      updateSelectedCategory(selectedCategoryIndex + 1);
+    }
+  });
+
+  // Initial rendering of categories
+  renderCategories();
+});
+</script>
+

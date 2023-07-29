@@ -20,17 +20,11 @@ echo $twig->render('pages/' . $page . '.twig', [
         'Video',
         'Programming',
         'Video games',
-        'Rumble',
-        'Tanks',
         'Miss',
         'News',
         'Ukraine',
-        'Pets',
-        'New for you',
-        'Youtube logo',
-        'Tanks',
-        'Rumble',
-        'Title'
+
+        
     ],
     
 
