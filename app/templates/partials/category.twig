@@ -39,12 +39,12 @@
 
 {# New + JS #}
 <div class="px-2 py-1 whitespace-nowrap max-w-screen overflow-auto">
-	<div class="flex items-center space-x-2">
+	<div class="flex items-center ">
 		<div>
 			<a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="prevButton">&laquo;</a>
 		</div>
 
-		<div class="my-1 text-sm space-x-2 isolate inline-flex shadow-sm" id="categoriesContainer">
+		<div class="my-1 text-sm  isolate inline-flex shadow-sm" id="categoriesContainer">
 			{% for category in categories %}
 				{% if selected_category == category %}
 					<a href="?category={{ category }}" class="px-3 py-1 mx-1 bg-black text-white border border-none rounded-md transition hover:bg-gray-200 hover:text-black">{{ category }}</a>
