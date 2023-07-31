@@ -23,8 +23,6 @@ echo $twig->render('pages/' . $page . '.twig', [
         'Miss',
         'News',
         'Ukraine',
-
-        
     ],
     
 
