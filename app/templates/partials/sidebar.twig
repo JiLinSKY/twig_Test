@@ -1,8 +1,8 @@
-<div class="pl-4 text-xs max-h-screen overflow-auto top-0 bg-white  max-lg:hidden">
+<div class="pl-4 max-h-screen overflow-auto top-0 bg-white  max-lg:hidden">
 
 	{# Menu 1 #}
 
-	<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-52 max-xl:w-24 w">
+	<div class="py-1 mb-1 bg-white whitespace-nowrap w-40 max-xl:w-24 w">
 		<div class="flex flex-col">
 			{% for menu_item in menu %} {% set active_style = (selected_menu_index is
 			defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' :
@@ -26,7 +26,7 @@
 
 		{# Menu 2 #}
 
-		<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="py-1 mb-1 bg-white whitespace-nowrap w-full">
 			<div class="flex flex-col">
 				{% for menu2_item in menu2 %} {% set active_style2 =
 				(selected_menu2_index is defined and loop.index0 ==
@@ -46,7 +46,7 @@
 
 		{# Menu 3 #}
 
-		<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+		<div class="py-1 mb-1 bg-white whitespace-nowrap w-full">
 			<div class="flex flex-col">
 				{% for menu3_item in menu3 %} {% set active_style3 =
 				(selected_menu3_index is defined and loop.index0 ==
@@ -102,8 +102,8 @@
 								class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
 									active_style3
 								}}">
-								{{ expand_item.icon | raw }}
-								<span class="pl-2">{{ expand_item.title }}</span>
+								<div class="max-xl:w-7">{{ expand_item.icon | raw }}</div>
+								<div class="pl-2">{{ expand_item.title }}</div>
 							</a>
 							{% endfor %}
 						</div>

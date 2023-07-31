@@ -1,34 +1,31 @@
-
 {% extends 'layouts/app.twig' %}
 
 {% block content %}
-  <section class="pr-10 pl-2 mt-10">
-    <div class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 ">
+  <section class="pr-2 pl-2 mt-4">
+    <div class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1">
       {% for item in media %}
-        <div>
+        <div class="w-full aspect-w-16 aspect-h-9"> <!-- Added aspect-w-16 and aspect-h-9 classes for 16:9 aspect ratio -->
           <div class="relative cursor-pointer mb-1 rounded-lg overflow-hidden">
             {% if item.image %}
               <img src="{{ item.image }}" alt="">
             {% else %}
-              <video class="w-full aspect-video" src="{{ item.video }}" controls></video>
+              <video class="w-full h-full object-cover object-center" src="{{ item.video }}" controls></video>
+              <!-- Added object-cover and object-center classes to ensure the video maintains aspect ratio and centers within the container -->
             {% endif %}
           </div>
           <div class="flex">
             <div class="text-xs ml-3">
               <ul>
-                <li><a class=" font-bold" href="#">{{ item.title }}</a></li>
-                <li class=""><a href="#">{{ item.subtitle}}</a></li>
-                <li><a href="#">{{item.info}}</a></li>
+                <li><a class="font-bold" href="#">{{ item.title }}</a></li>
+                <li class=""><a href="#">{{ item.subtitle }}</a></li>
+                <li><a href="#">{{ item.info }}</a></li>
               </ul>
             </div>
           </div>
         </div>
       {% endfor %}
-
     </div>
   </section>
-
-
 {% endblock %}
 
 
@@ -36,7 +33,7 @@
 {# {% extends 'layouts/app.twig' %}
 
 {% block content %}
-  <section class="pr-10 pl-2 mt-10">
+  <section class="pr-2 pl-2 mt-4">
     <div class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 ">
       {% for item in media %}
         <div>
@@ -64,3 +61,4 @@
 
 
 {% endblock %} #}
+

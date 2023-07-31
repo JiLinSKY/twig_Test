@@ -38,8 +38,8 @@
 
 
 {# New + JS #}
-<div class="px-2 py-1 whitespace-nowrap max-w-screen overflow-auto">
-	<div class="flex items-center ">
+<div class="flex px-2 py-1 whitespace-nowrap max-w-screen overflow-auto max-xl">
+	<div class="flex items-center">
 		<div>
 			<a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="prevButton">&laquo;</a>
 		</div>
@@ -107,14 +107,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   prevButton.addEventListener("click", function (event) {
-    event.preventDefault();
+    // Remove event.preventDefault();
     if (selectedCategoryIndex > 0) {
       updateSelectedCategory(selectedCategoryIndex - 1);
     }
   });
 
   nextButton.addEventListener("click", function (event) {
-    event.preventDefault();
+    // Remove event.preventDefault();
     if (selectedCategoryIndex < categories.length - 1) {
       updateSelectedCategory(selectedCategoryIndex + 1);
     }
@@ -124,4 +124,3 @@ document.addEventListener("DOMContentLoaded", function () {
   renderCategories();
 });
 </script>
-
