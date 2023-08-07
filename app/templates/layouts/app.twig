@@ -1,29 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<title>YouTube</title>
-		<link rel="stylesheet" href="/dist/app.css" />
-	</head>
-	<body class="text-xs">
-		<div >{% include 'partials/header.twig' %}</div>
-		<div class="pt-14">
-			<div class="flex">
-				<div class="pr-2">
-					{% include 'partials/sidebar.twig' %}
-				</div>
-				<div class="flex flex-col">
-					<div class="">
-						{% include 'partials/category.twig' %}
-					</div>
-					<div class="m-auto ">
-						{% block content %} {% endblock %}
-					</div>
-				</div>
-			</div>
-		</div>
-		{% include 'partials/footer.twig' %}
-		{% include 'partials/test.twig' %}
-	</body>
-</html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            YouTube                      
+        </title>
+        <link rel="stylesheet" href="/dist/app.css" />
+    </head>
+    <body class="text-xs">
+        <div>
+            {% include 'partials/header.twig' %}
+        </div>
+        <div class="pt-14 relative">
+            <div class="flex">
+                <div class="z-50  inset-0 flex items-center justify-center ">
+                    {% include 'partials/sign_in.twig' %}
+                </div>
+                <div class="pr-2">
+                    {% include 'partials/sidebar.twig' %}
+                </div>
+                <div class="flex flex-col ">
+                    <div class="">
+                        {% include 'partials/category.twig' %}
+                    </div>
+                    <div class="m-auto">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'partials/footer.twig' %}
 
+    </body>
+</html>
