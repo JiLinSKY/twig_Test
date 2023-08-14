@@ -1,8 +1,8 @@
-<div class="pl-4 max-h-screen overflow-auto top-0 bg-white  max-lg:hidden">
+<div class=" w-44 max-xl:w-24 pl-2 max-h-screen overflow-y-visible overflow-x-hidden top-0 bg-white  max-lg:hidden">
 
 	{# Menu 1 #}
 
-	<div class="py-1 mb-1 bg-white whitespace-nowrap w-40 max-xl:w-24 w">
+	<div class="py-1 mb-1 bg-white whitespace-nowrap ">
 		<div class="flex flex-col">
 			{% for menu_item in menu %} {% set active_style = (selected_menu_index is
 			defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' :
@@ -63,10 +63,10 @@
 			</div>
 		</div>
 		{# Expand #}
-		<div class="px-2 relative">
+		<div class="relative">
 			<button
 				type="button"
-				class="w-full flex items-center justify-start p-1 bg-white text-gray-700 hover:bg-gray-100"
+				class="px-3 py-2 w-full flex items-center justify-start p-1 bg-white text-gray-700 rounded-md transition hover:bg-gray-200 duration-100"
 				id="menu-button"
 				aria-expanded="false"
 				aria-haspopup="true">
@@ -82,24 +82,24 @@
 						stroke-linejoin="round"
 						d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
 				</svg>
-				<p class="text-gray-700 mx-3">Expand</p>
+				<p class="text-gray-700 mx-3">Развернуть</p>
 			</button>
 
 			<div
-				class="origin-top-right absolute right-0 mt-2 w-full bg-white ring-1 ring-black ring-opacity-5 hidden"
+				class="origin-top-right right-0 mt-2 w-full bg-white  ring-black ring-opacity-5 hidden"
 				role="menu"
 				aria-orientation="vertical"
 				aria-labelledby="menu-button"
 				tabindex="-1">
-				<div class="py-1" role="none">
-					<div class="pt-2 pb-2 mb-1 bg-white whitespace-nowrap w-full">
+				<div class="" role="none">
+					<div class=" bg-white whitespace-nowrap w-full">
 						<div class="flex flex-col">
 							{% for expand_item in expand %} {% set active_style4 =
 							(selected_expand_index is defined and loop.index0 ==
 							selected_expand_index) ? 'bg-gray-300' : 'bg-white' %}
 							<a
 								href="?expand_index={{ loop.index0 }}"
-								class="flex items-center  px-3 py-2 rounded-sm transition hover:bg-gray-200 {{
+								class="flex items-center px-3 py-2 rounded-md transition hover:bg-gray-200 {{
 									active_style3
 								}}">
 								<div class="max-xl:w-7">{{ expand_item.icon | raw }}</div>
@@ -114,7 +114,7 @@
 		<hr class="my-1" />
 		{# Footer #}
 		<footer class="text-gray-600">
-			<div class="p-4">
+			<div class="p-2">
 				{% for link in links_footer %}
 
 				<a href="{{ link.url }}" class="">{{ link.title }}</a>
@@ -122,7 +122,7 @@
 				{% endfor %}
 			</div>
 			{# Footer 2 #}
-			<div class="p-4">
+			<div class="p-2">
 				{% for link in links_footer2 %}
 
 				<a href="{{ link.url }}" class="">{{ link.title }}</a>
