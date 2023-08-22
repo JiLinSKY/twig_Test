@@ -12,12 +12,13 @@
               <video id="video" class="w-full h-full object-cover object-center" src="{{ item.video }}" controls></video>
             {% endif %}
           </div>
-          <div class="flex">
-            <div class="text-xs ml-3">
+          <div class="flex pt-2">
+            <div><img class="w-7" src="https://cdn-icons-png.flaticon.com/512/1427/1427745.png" alt=""></div>
+            <div class=" text-sm max-md:text-base  ml-3">
               <ul>
                 <li><a class="font-bold" href="#">{{ item.title }}</a></li>
-                <li class=""><a href="#">{{ item.subtitle }}</a></li>
-                <li><a href="#">{{ item.info }}</a></li>
+                <li><a href="#">{{ item.subtitle }}</a></li>
+                <li><span href="#">{{ item.info }}</span></li>
               </ul>
             </div>
           </div>

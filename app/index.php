@@ -195,7 +195,7 @@ echo $twig->render('pages/' . $page . '.twig', [
 
     //video
     'media'    => [
-        [
+        [   
             'title' => 'Deer',
             'video' => '/assets/02video.mp4',
             'subtitle' => 'Discovery',
