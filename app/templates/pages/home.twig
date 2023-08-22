@@ -13,7 +13,10 @@
             {% endif %}
           </div>
           <div class="flex pt-2">
-            <div><img class="w-7" src="https://cdn-icons-png.flaticon.com/512/1427/1427745.png" alt=""></div>
+            
+            <div class="overflow-hidden w-7 h-7">
+              <img class="w-full h-full object-cover object-center rounded-2xl" src="{{ item.ico }}" alt="">
+            </div>
             <div class=" text-sm max-md:text-base  ml-3">
               <ul>
                 <li><a class="font-bold" href="#">{{ item.title }}</a></li>
