@@ -1,67 +1,25 @@
 <div class=" w-44 max-xl:w-24 pl-2 max-h-screen overflow-y-visible overflow-x-hidden top-0 bg-white">
 
-	{# Menu 1 #}
+<div class="py-1 mb-1 bg-white whitespace-nowrap ">
+    <div class="flex flex-col">
+        {% for menu_item in menu %}
+            {% if menu_item.hr is defined and menu_item.hr %}
+                <hr class="my-1 max-xl:hidden" />
+            {% else %}
+                {% set active_style = (selected_menu_index is defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' : 'bg-white' %}
+                <a href="?menu_index={{ loop.index0 }}"
+                   class="flex items-center px-3 py-2 rounded-md transition hover:bg-gray-200 max-xl:flex-col {{ active_style }}">
+                    <div class="flex max-xl:flex-col max-xl:grid justify-items-center">
+                        <div class="w-4 max-xl:w-5">{{ menu_item.icon | raw }}</div>
+                        <div class="pl-2 max-xl:pl-0">{{ menu_item.title }}</div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
 
-	<div class="py-1 mb-1 bg-white whitespace-nowrap ">
-		<div class="flex flex-col">
-			{% for menu_item in menu %} {% set active_style = (selected_menu_index is
-			defined and loop.index0 == selected_menu_index) ? 'bg-gray-300' :
-			'bg-white' %}
-			<a
-				href="?menu_index={{ loop.index0 }}"
-				class="flex items-center  px-3 py-2 rounded-md transition hover:bg-gray-200 max-xl:flex-col {{
-					active_style
-				}}">
-				<div class="flex max-xl:flex-col max-xl:grid justify-items-center">
-					<div class="w-4 max-xl:w-5">{{ menu_item.icon | raw }}</div>
-					<div class="pl-2 max-xl:pl-0">{{ menu_item.title }}</div>
-				</div>
-			</a>
-			{% endfor %}
-		</div>
-	</div>
-	<hr class="my-1 max-xl:hidden" />
 
-	<div class="max-xl:hidden">
-
-		{# Menu 2 #}
-
-		<div class="py-1 mb-1 bg-white whitespace-nowrap w-full">
-			<div class="flex flex-col">
-				{% for menu2_item in menu2 %} {% set active_style2 =
-				(selected_menu2_index is defined and loop.index0 ==
-				selected_menu2_index) ? 'bg-gray-300' : 'bg-white' %}
-				<a
-					href="?menu2_index={{ loop.index0 }}"
-					class="flex items-center  px-3 py-2 rounded-md transition hover:bg-gray-200 {{
-						active_style2
-					}}">
-					<div class="w-4 max-xl:w-7">{{ menu2_item.icon | raw }}</div>
-					<div class="pl-2">{{ menu2_item.title }}</div>
-				</a>
-				{% endfor %}
-			</div>
-		</div>
-		<hr class="my-1" />
-
-		{# Menu 3 #}
-
-		<div class="py-1 mb-1 bg-white whitespace-nowrap w-full">
-			<div class="flex flex-col">
-				{% for menu3_item in menu3 %} {% set active_style3 =
-				(selected_menu3_index is defined and loop.index0 ==
-				selected_menu3_index) ? 'bg-gray-300' : 'bg-white' %}
-				<a
-					href="?menu3_index={{ loop.index0 }}"
-					class="flex items-center  px-3 py-2 rounded-md transition hover:bg-gray-200 {{
-						active_style3
-					}}">
-					<div class="w-4 max-xl:w-7">{{ menu3_item.icon | raw }}</div>
-					<div class="pl-2">{{ menu3_item.title }}</div>
-				</a>
-				{% endfor %}
-			</div>
-		</div>
 		{# Expand #}
 		<div class="relative">
 			<button
@@ -136,7 +94,6 @@
 		</footer>
 	</div>
 </div>
-{# Menu 2 #}
 
 <script>
 	const menuButton = document.getElementById("menu-button")
@@ -155,6 +112,9 @@
 </script>
 
 
-{# kgrnsrgkdsr #}
+
+
+
+
 
 
