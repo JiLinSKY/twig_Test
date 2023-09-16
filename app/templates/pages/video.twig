@@ -1,0 +1,36 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+<section class="p-4">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4">{{ videoTitle }}</h1>
+    <div class="relative">
+      <button id="close-button" class="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="video-container">
+        <video id="video-player" class="w-full" controls>
+          <source src="{{ videoSrc }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const closeButton = document.getElementById('close-button');
+  const videoPlayer = document.getElementById('video-player');
+
+  closeButton.addEventListener('click', () => {
+    // Закрываем окно при клике на кнопку закрытия
+    window.close();
+  });
+
+  // Автоматически начинаем воспроизведение видео
+  videoPlayer.play();
+</script>
+
+{% endblock %}
