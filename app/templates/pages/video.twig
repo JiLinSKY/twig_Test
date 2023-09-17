@@ -1,18 +1,13 @@
-{% extends 'layouts/app.twig' %}
-
-{% block content %}
-<body>
-    <div class="h-screen w-screen flex items-center justify-center ">
-        <div class="w-2/3">
-            <h1 class="text-3xl text-white mb-4">{{ videoTitle }}</h1>
-            <div class="aspect-w-16 aspect-h-9">
-                <video class="w-full h-full object-cover" controls>
-                    <source src="{{ videoUrl }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+{% extends 'layouts/app.twig' %} {% block content %}
+<section>
+	<div class="pl-2 flex items-center justify-start">
+		<div class="w-2/3">
+			<div class="">
+				<video class="w-full h-full object-cover" controls>
+					<source src="{{ attribute(media, title).video }}" type="video/mp4" />
+				</video>
+			</div>
+		</div>
+	</div>
+</section>
 {% endblock %}

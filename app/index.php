@@ -9,11 +9,13 @@ $loader = new FilesystemLoader('templates');
 $twig   = new Environment($loader);
 
 $page = !isset($_GET['page']) ? 'home' : $_GET['page'];
-
+/* var_dump($_GET['title']); die; */
+/* $page = 'video'; */
 
 $selected_menu_index = isset($_GET['menu_index']) ? $_GET['menu_index'] : 0;
 
 echo $twig->render('pages/' . $page . '.twig', [
+    'title' => $_GET['title'],
     'selected_category' => isset($_GET['category']) ? $_GET['category'] : 'All',
     'categories' => [
         'All',
@@ -190,165 +192,124 @@ echo $twig->render('pages/' . $page . '.twig', [
 
     //video
     'media'    => [
-        [   
+        'Deer' => [   
             'ico' => '/assets/channel_ico/JR-Bombastic_Pirates.webp',
             'title' => 'Deer',
             'video' => '/assets/02video.mp4',
             'subtitle' => 'Discovery',
             'info' => '244 тыс. просмотров'
         ],
-        [   
+        'Ocean' =>[   
             'ico' => '/assets/channel_ico/1551511774_9.jpg',
             'title' => 'Ocean',
             'video' => '/assets/06video.mp4',
             'subtitle' => 'Earth',
             'info' => '4 тыс. просмотров'
         ],
-        [   'ico' => '/assets/channel_ico/1677456584_bogatyr-club-p-avatarki-na-chernom-fone-foni-3.jpg',
+        'Lynx' =>[   'ico' => '/assets/channel_ico/1677456584_bogatyr-club-p-avatarki-na-chernom-fone-foni-3.jpg',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   'ico' => '/assets/channel_ico/images.jpeg',
+        'Lion' =>[   'ico' => '/assets/channel_ico/images.jpeg',
             'title' => 'Lion',
             'video' => '/assets/04video.mp4',
             'subtitle' => 'Discovery',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Ocean2' =>[   
             'ico' => '/assets/channel_ico/1551511774_9.jpg',
             'title' => 'Ocean',
             'video' => '/assets/06video.mp4',
             'subtitle' => 'Earth',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx3' =>[   
             'ico' => '/assets/channel_ico/JR-Bombastic_Pirates.webp',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   
+        'Lion4' =>[   
             'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
             'title' => 'Lion',
             'video' => '/assets/04video.mp4',
             'subtitle' => 'Discovery',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Ocean3' =>[   
             'ico' => '/assets/channel_ico/1551511774_9.jpg',
             'title' => 'Ocean',
             'video' => '/assets/06video.mp4',
             'subtitle' => 'Earth',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lion5' =>[   
             'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
             'title' => 'Lion',
             'video' => '/assets/04video.mp4',
             'subtitle' => 'Discovery',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx3' =>[   
             'ico' => '/assets/channel_ico/1677456584_bogatyr-club-p-avatarki-na-chernom-fone-foni-3.jpg',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   
+        'Lunx4' =>[   
             'ico' => '/assets/channel_ico/JR-Bombastic_Pirates.webp',
             'title' => 'Ocean',
             'video' => '/assets/06video.mp4',
             'subtitle' => 'Earth',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx5' =>[   
             'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   
+        'Lunx6' =>[   
             'ico' => '/assets/channel_ico/images.jpeg',
             'title' => 'Lion',
             'video' => '/assets/04video.mp4',
             'subtitle' => 'Discovery',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx7' =>[   
             'ico' => '/assets/channel_ico/1551511774_9.jpg',
             'title' => 'Ocean',
             'video' => '/assets/06video.mp4',
             'subtitle' => 'Earth',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx8' =>[   
             'ico' => '/assets/channel_ico/JR-Bombastic_Pirates.webp',
             'title' => 'Lion',
             'video' => '/assets/04video.mp4',
             'subtitle' => 'Discovery',
             'info' => '4 тыс. просмотров'
         ],
-        [   
+        'Lunx9' =>[   
             'ico' => '/assets/channel_ico/1677456584_bogatyr-club-p-avatarki-na-chernom-fone-foni-3.jpg',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   
-            'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
-            'title' => 'Deer',
-            'video' => '/assets/02video.mp4',
-            'subtitle' => 'Discovery',
-            'info' => '44 тыс. просмотров'
-        ],
-        [   
-            'ico' => '/assets/channel_ico/1551511774_9.jpg',
-            'title' => 'Ocean',
-            'video' => '/assets/06video.mp4',
-            'subtitle' => 'Earth',
-            'info' => '4 тыс. просмотров'
-        ],
-        [   
-            'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
+        'Lunx9' =>[   
+            'ico' => '/assets/channel_ico/1677456584_bogatyr-club-p-avatarki-na-chernom-fone-foni-3.jpg',
             'title' => 'Lynx',
             'video' => '/assets/03video.mp4',
             'subtitle' => 'Discovery',
             'info' => '22 тыс. просмотров'
         ],
-        [   
-            'ico' => '/assets/channel_ico/7300343099db28441cbf757d1ed2fed7.png',
-            'title' => 'Lion',
-            'video' => '/assets/04video.mp4',
-            'subtitle' => 'Discovery',
-            'info' => '4 тыс. просмотров'
-        ],
-        [   
-            'ico' => '/assets/channel_ico/JR-Bombastic_Pirates.webp',
-            'title' => 'Ocean',
-            'video' => '/assets/06video.mp4',
-            'subtitle' => 'Earth',
-            'info' => '4 тыс. просмотров'
-        ],
-        [   
-            'ico' => '/assets/channel_ico/1551511774_9.jpg',
-            'title' => 'Lion',
-            'video' => '/assets/04video.mp4',
-            'subtitle' => 'Discovery',
-            'info' => '4 тыс. просмотров'
-        ],
-        [   
-            'ico' => '/assets/channel_ico/1551511774_9.jpg',
-            'title' => 'Lynx',
-            'video' => '/assets/03video.mp4',
-            'subtitle' => 'Discovery',
-            'info' => '22 тыс. просмотров'
-        ],
+        
     ]
     //sidebar
     

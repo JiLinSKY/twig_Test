@@ -1,80 +1,4 @@
-{# 1 Что было ______________________________________________________ #}
-{#{% extends 'layouts/app.twig' %}
 
-{% block content %}
-<section class="pr-2 pl-2 mt-4">
-  <div class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1">
-    {% for item in media %}
-      <div class="w-full aspect-w-16 aspect-h-9">
-        <div class="relative cursor-pointer mb-1 rounded-lg overflow-hidden media-item"
-             data-video="{{ item.video }}"
-             data-title="{{ item.title }}">
-          {% if item.image %}
-            <img src="{{ item.image }}" alt="">
-          {% else %}
-            <video class="w-full h-full object-cover object-center" src="{{ item.video }}" controls></video>
-          {% endif %}
-        </div>
-        <div class="flex pt-2">
-          <div class="overflow-hidden w-7 h-7">
-            <img class="w-full h-full object-cover object-center rounded-2xl" src="{{ item.ico }}" alt="">
-          </div>
-          <div class="text-sm max-md:text-base ml-3">
-            <ul>
-              <li><a class="font-bold" href="#">{{ item.title }}</a></li>
-              <li><a href="#">{{ item.subtitle }}</a></li>
-              <li><span href="#">{{ item.info }}</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</section>
-{% endblock %} #}
-
-
-{#  Not Found ______________________________________________________ #}
-{# {% extends 'layouts/app.twig' %}
-
-{% block content %}
-<section class="pr-2 pl-2 mt-4">
-  <div class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1">
-    {% for item in media %}
-      <div class="w-full aspect-w-16 aspect-h-9">
-        <div class="relative cursor-pointer mb-1 rounded-lg overflow-hidden media-item"
-             data-video="{{ item.video }}"
-             data-title="{{ item.title }}">
-          {% if item.image %}
-            <img src="{{ item.image }}" alt="">
-          {% else %}
-            <a href="/app/templates/pages/video.twig?video={{ item.video }}&title={{ item.title }}" class="w-full h-full object-cover object-center">
-              <video class="w-full h-full object-cover object-center" src="{{ item.video }}" controls></video>
-            </a>
-          {% endif %}
-        </div>
-        <div class="flex pt-2">
-          <div class="overflow-hidden w-7 h-7">
-            <img class="w-full h-full object-cover object-center rounded-2xl" src="{{ item.ico }}" alt="">
-          </div>
-          <div class="text-sm max-md:text-base ml-3">
-            <ul>
-              <li><a class="font-bold" href="#">{{ item.title }}</a></li>
-              <li><a href="#">{{ item.subtitle }}</a></li>
-              <li><span href="#">{{ item.info }}</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</section> 
-{% endblock %} #}
-
-
-
-
-{# код меняет url _________________________________________________ #}
 
 {% extends 'layouts/app.twig' %}
 
@@ -89,8 +13,8 @@
       {% if item.image %}
         <img src="{{ item.image }}" alt="">
       {% else %}
-        <a href="?video_index={{ loop.video }} &title={{ item.title }}" class="w-full h-full object-cover object-center">
-          <video class="w-full h-full object-cover object-center" src="{{ item.video }}" controls></video>
+        <a href="?page=video&video_index={{ loop.video }} &title={{ item.title }}" class="w-full h-full object-cover object-center">
+          <video class=" object-cover object-center" src="{{ item.video }}" controls></video>
         </a>
       {% endif %}
     </div>
