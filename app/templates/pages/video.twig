@@ -1,11 +1,33 @@
 {% extends 'layouts/app.twig' %} {% block content %}
-<section>
-	<div class="pl-2 flex items-center justify-start">
+<section class="pr-2 pl-2 mt-4">
+	<div class="">
 		<div class="w-2/3">
 			<div class="">
 				<video class="w-full h-full object-cover" controls>
 					<source src="{{ attribute(media, title).video }}" type="video/mp4" />
 				</video>
+                
+                <div class="flex pt-2">
+				<div class="overflow-hidden w-7 h-7">
+					<img
+						class="w-full h-full object-cover object-center rounded-2xl"
+						src="{{ attribute(media, title).ico }}"
+						alt="" />
+				</div>
+				<div class="text-sm max-md:text-base ml-3">
+					<ul>
+						<li>
+							<a class="font-bold" href="#">{{ attribute(media, title).title }}</a>
+						</li>
+						<li>
+							<a href="#">{{ attribute(media, title).subtitle }}</a>
+						</li>
+						<li>
+							<span href="#">{{ attribute(media, title).info }}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
 			</div>
 		</div>
 	</div>
