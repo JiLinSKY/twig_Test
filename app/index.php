@@ -10,6 +10,7 @@ $twig   = new Environment($loader);
 
 $page = !isset($_GET['page']) ? 'home' : $_GET['page'];
 
+
 $selected_menu_index = isset($_GET['menu_index']) ? $_GET['menu_index'] : 0;
 
 echo $twig->render('pages/' . $page . '.twig', [
