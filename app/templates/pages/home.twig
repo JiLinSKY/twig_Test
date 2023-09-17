@@ -1,5 +1,12 @@
 {% extends 'layouts/app.twig' %} {% block content %}
-<section class="pr-2 pl-2 mt-4">
+<div>
+	<div class="pr-2 z-10 max-lg:hidden fixed h-screen">
+		{% include 'partials/sidebar.twig' %}
+	</div>
+</div>
+
+<section class="pr-2 pl-2 ml-44 max-xl:ml-28 max-lg:ml-2">
+	<div class="mb-4">{% include 'partials/category.twig' %}</div>
 	<div
 		class="grid grid-cols-4 gap-3 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1">
 		{% for item in media %}
