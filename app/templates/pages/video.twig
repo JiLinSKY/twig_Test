@@ -1,9 +1,9 @@
 {% extends 'layouts/app.twig' %} {% block content %}
-<section class="pr-2 pl-2 mt-4">
-	<div class="">
-		<div class="w-2/3">
+<section class=" container mx-auto flex justify-center pr-2 pl-2 mt-4 pt-5">
+	<div class="grid grid-cols-4">
+		<div class=" col-span-3">
 			<div class="">
-				<video class="w-full h-full object-cover" controls>
+				<video class=" w-full rounded-lg" controls>
 					<source src="{{ attribute(media, title).video }}" type="video/mp4" />
 				</video>
                 
@@ -29,6 +29,9 @@
 				</div>
 			</div>
 			</div>
+		</div>
+		<div class=" p-2 ">
+			{% include 'partials/secondary.twig' %}
 		</div>
 	</div>
 </section>

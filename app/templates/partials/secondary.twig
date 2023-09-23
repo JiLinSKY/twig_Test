@@ -1,0 +1,36 @@
+<section>
+		{% for item in media %}
+		<div class="flex aspect-w-16 aspect-h-9">
+			<div class="cursor-pointer w-full mb-1 rounded-lg overflow-hidden media-item"
+				data-video="{{ item.video }}"
+				data-title="{{ item.title }}">
+				{% if item.image %}
+				<img src="{{ item.image }}" alt="" />
+				{% else %}
+				<a href="?page=video&video_index={{ loop.video }} &title={{item.title}}"
+					class="h-full object-cover object-center">
+					<video
+						class=" object-cover object-center"
+						src="{{ item.video }}"
+						></video>
+				</a>
+				{% endif %}
+			</div>
+			<div class=" pt-2">
+				<div class="text-sm max-md:text-base ml-3">
+					<ul>
+						<li>
+							<a class="font-bold" href="#">{{ item.title }}</a>
+						</li>
+						<li>
+							<a href="#">{{ item.subtitle }}</a>
+						</li>
+						<li>
+							<span href="#">{{ item.info }}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+</section>

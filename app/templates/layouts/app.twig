@@ -1,28 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>YouTube</title>
-    <link rel="stylesheet" href="/dist/app.css">
-</head>
-<body class="text-xs">
-    <div>
-        {% include 'partials/header.twig' %}
-    </div>
-    <div class="pt-8 relative">
-        <div class="flex">
-            <div class="z-50 inset-0 flex items-center justify-center">
-                {% include 'partials/sign_in.twig' %}
-            </div>
-            
-            <div class="">
-                <div class="">
-                    {% block content %}{% endblock %}
-                </div>
-            </div>
-        </div>
-    </div>
-    {% include 'partials/footer.twig' %}
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<title>YouTube</title>
+		<link rel="stylesheet" href="/dist/app.css" />
+	</head>
+	<body class="text-xs">
+		<div>{% include 'partials/header.twig' %}</div>
+		<div class="pt-8">
+			<div>
+				<div class="flex">
+					<div class="z-50 inset-0 flex items-center justify-center">
+						{% include 'partials/sign_in.twig' %}
+					</div>
+				</div>
+				<div>
+					<div>{% block content %}{% endblock %}</div>
+				</div>
+			</div>
+		</div>
+		{% include 'partials/footer.twig' %}
+	</body>
 </html>
-
