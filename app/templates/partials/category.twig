@@ -1,11 +1,11 @@
 <div class="flex px-2 py-1 max-w-screen overflow-auto max-xl">
   <div class="flex items-center">
     <div>
-      <a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="prevButton">
+      <a href="#" class="px-3 py-1  bg-slate-100 border border-none rounded-md transition" id="prevButton">
         &laquo;
       </a>
     </div>
-    <div class="my-1 text-sm isolate inline-flex shadow-sm whitespace-nowrap" id="categoriesContainer">
+    <div class="py-1  isolate  whitespace-nowrap" id="categoriesContainer">
       {% for category in categories %}
         {% if selected_category == category %}
           <a href="?category={{ category }}" class="px-3 py-1 mx-1 bg-black text-white border border-none rounded-md transition hover:bg-gray-200 hover:text-black">
@@ -19,7 +19,7 @@
       {% endfor %}
     </div>
     <div>
-      <a href="#" class="px-3 py-1 mx-1 bg-slate-100 border border-none rounded-md transition" id="nextButton">
+      <a href="#" class="px-3 py-1 px-1 bg-slate-100 border border-none rounded-md transition" id="nextButton">
         &raquo;
       </a>
     </div>
