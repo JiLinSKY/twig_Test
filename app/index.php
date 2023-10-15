@@ -27,7 +27,6 @@ echo $twig->render('pages/' . $page . '.twig', [
         'News',
         'Ukraine',
     ],
-    
 
 //Menu
 

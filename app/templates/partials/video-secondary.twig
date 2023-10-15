@@ -1,36 +1,41 @@
 <section>
-		{% for item in media %}
-		<div class="flex aspect-w-16 aspect-h-9">
-			<div class="cursor-pointer w-full mb-1 rounded-lg overflow-hidden media-item"
-				data-video="{{ item.video }}"
-				data-title="{{ item.title }}">
-				{% if item.image %}
-				<img src="{{ item.image }}" alt="" />
-				{% else %}
-				<a href="?page=video&video_index={{ loop.video }} &title={{item.title}}"
-					class="h-full object-cover object-center">
-					<video
-						class=" object-cover object-center"
-						src="{{ item.video }}"
-						></video>
-				</a>
-				{% endif %}
-			</div>
-			<div class=" pt-2">
-				<div class="text-sm max-md:text-base ml-3">
-					<ul>
-						<li>
-							<div class="font-bold text-[16px]" href="#">{{ item.title }}</div>
-						</li>
-						<li>
-							<a class="text-[14px] text-gray-800" href="#">{{ item.subtitle }}</a>
-						</li>
-						<li>
-							<span class="text-[14px] text-gray-500" href="#">{{ item.info }}</span>
-						</li>
-					</ul>
-				</div>
+	{% for item in media %}
+	<div class="flex aspect-w-16 aspect-h-9">
+		<div
+			class="cursor-pointer w-full mb-1 rounded-lg overflow-hidden media-item"
+			data-video="{{ item.video }}"
+			data-title="{{ item.title }}">
+			{% if item.image %}
+			<img src="{{ item.image }}" alt="" />
+			{% else %}
+			<a
+				href="?page=video&video_index={{ loop.video }} &title={{ item.title }}"
+				class="h-full object-cover object-center">
+				<video
+					class="object-cover object-center"
+					src="{{ item.video }}"></video>
+			</a>
+			{% endif %}
+		</div>
+		<div class="pt-2">
+			<div class="text-sm max-md:text-base ml-3">
+				<ul>
+					<li>
+						<div class="font-bold text-[16px]" href="#">{{ item.title }}</div>
+					</li>
+					<li>
+						<a class="text-[14px] text-gray-800" href="#">{{
+							item.subtitle
+						}}</a>
+					</li>
+					<li>
+						<span class="text-[14px] text-gray-500" href="#">{{
+							item.info
+						}}</span>
+					</li>
+				</ul>
 			</div>
 		</div>
-		{% endfor %}
+	</div>
+	{% endfor %}
 </section>

@@ -1,43 +1,41 @@
 {% extends 'layouts/app.twig' %} {% block content %}
-<section class=" container mx-auto flex justify-center pr-2 pl-2 mt-4 pt-5">
+<section class="container mx-auto flex justify-center pr-2 pl-2 mt-4 pt-5">
 	<div class="grid grid-cols-4 max-lg:grid-cols-1">
-		<div class=" col-span-3">
+		<div class="col-span-3">
 			<div class="">
-				<video class=" w-full rounded-lg pb-2" controls>
+				<video class="w-full rounded-lg pb-2" controls>
 					<source src="{{ attribute(media, title).video }}" type="video/mp4" />
 				</video>
-                <div class="font-bold text-base" href="#">{{ attribute(media, title).title }}</div>
-                <div class="flex pt-2">
-				<div class="overflow-hidden w-7 h-7">
-					<img
-						class="w-full h-full object-cover object-center rounded-2xl"
-						src="{{ attribute(media, title).ico }}"
-						alt="" />
+				<div class="font-bold text-base" href="#">
+					{{ attribute(media, title).title }}
 				</div>
-				<div class=" max-md:text-base ml-3">
-					
-					<ul>
-							
-						<li>
-							<a href="#">{{ attribute(media, title).subtitle }}</a>
-						</li>
-						<li>
-							<span class="text-[14px] text-gray-500" href="#">{{ attribute(media, title).info }}</span>
-						</li>
-					</ul>
+				<div class="flex pt-2">
+					<div class="overflow-hidden w-7 h-7">
+						<img
+							class="w-full h-full object-cover object-center rounded-2xl"
+							src="{{ attribute(media, title).ico }}"
+							alt="" />
+					</div>
+					<div class="max-md:text-base ml-3">
+						<ul>
+							<li>
+								<a href="#">{{ attribute(media, title).subtitle }}</a>
+							</li>
+							<li>
+								<span class="text-[14px] text-gray-500" href="#">{{
+									attribute(media, title).info
+								}}</span>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-			</div>
-			<div class=" p-2 ">
-				
-			{% include 'partials/video-description.twig' %}
+			<div class="p-2">{% include 'partials/video-description.twig' %}</div>
 		</div>
-		</div>
-		
+
 		<div class="p-2 max-lg:hidden">
 			<div class="pb-2">{% include 'partials/category.twig' %}</div>
 			<div>{% include 'partials/video-secondary.twig' %}</div>
-			
 		</div>
 	</div>
 </section>
